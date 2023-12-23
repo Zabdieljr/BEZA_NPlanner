@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Trader App</title>
+    <title>Children Planner</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
@@ -13,58 +13,54 @@
     <h3>Main Dashboard</h3>
 </nav>
 <div class="container">
-    <h1>Traders</h1>
+    <h1>My Child</h1>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Phone</th>
-            <th scope="col">Account Number</th>
-            <th scope="col">Routing Number</th>
-            <th scope="col">Wallet Address</th>
-            <th scope="col">API Key</th>
+            <th scope="col">Age</th>
+
         </tr>
         </thead>
         <tbody>
-        <tr th:each="trader : ${traderslist}">
-            <td th:text="${trader.id}"></td>
-            <td th:text="${trader.name}"></td>
-            <td th:text="${trader.email}"></td>
-            <td th:text="${trader.phone}"></td>
-            <td th:text="${trader.accountNumber}"></td>
-            <td th:text="${trader.routingNumber}"></td>
-            <td th:text="${trader.walletAddress}"></td>
-            <td th:text="${trader.apiKey}"></td>
+        <tr th:each="child : ${childrenlist}">
+            <td th:text="${child.id}"></td>
+            <td th:text="${child.name}"></td>
+            <td th:text="${child.age}"></td>
+
         </tr>
         </tbody>
     </table>
-    <h1>Positions</h1>
+    <h1>Activities</h1>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Liquidation Percentage</th>
-            <th scope="col">Trader ID</th>
+            <th scope="col">Day</th>
+            <th scope="col">Hour</th>
+            <th scope="col">Description</th>
+            <th scope="col">Type</th>
+            <th scope="col">Location</th>
+            <th scope="col">Importance</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="position : ${positionslist}">
-            <td th:text="${position.id}"></td>
-            <td th:text="${position.name}"></td>
-            <td th:text="${position.price}"></td>
-            <td th:text="${position.quantity}"></td>
-            <td th:text="${position.liquidationPercentage}"></td>
-            <td th:text="${position.trader.id}"></td>
+        <tr th:each="activity : ${activitieslist}">
+            <td th:text="${activity.id}"></td>
+            <td th:text="${activity.name}"></td>
+            <td th:text="${activity.day}"></td>
+            <td th:text="${activity.hour}"></td>
+            <td th:text="${activity.description}"></td>
+            <td th:text="${activity.type}"></td>
+            <td th:text="${activity.location}"></td>
+            <td th:text="${activity.importance}"></td>
         </tr>
         </tbody>
     </table>
-    <a href="#" class="btn btn-primary">Add Trader</a>
-    <a href="#" class="btn btn-primary">Post Long Position</a>
+    <a href="#" class="btn btn-primary">Add Child</a>
+    <a href="#" class="btn btn-primary">Post Activity</a>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -1,4 +1,10 @@
 package win.bezahive.beza_np.repositories;
 
-public interface ChildRepository extends org.springframework.data.jpa.repository.JpaRepository<win.bezahive.beza_np.model.child, java.lang.Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import win.bezahive.beza_np.model.Child;
+
+@Repository
+public interface ChildRepository extends JpaRepository<Child, Long> {
+
 }
