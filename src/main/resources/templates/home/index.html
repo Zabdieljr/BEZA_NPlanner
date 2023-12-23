@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trader App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav th:replace="layouts :: topNavBar"></nav>
+<div class="container">
+    <h3>Main Dashboard</h3>
+</nav>
+<div class="container">
+    <h1>Traders</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Account Number</th>
+            <th scope="col">Routing Number</th>
+            <th scope="col">Wallet Address</th>
+            <th scope="col">API Key</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="trader : ${traderslist}">
+            <td th:text="${trader.id}"></td>
+            <td th:text="${trader.name}"></td>
+            <td th:text="${trader.email}"></td>
+            <td th:text="${trader.phone}"></td>
+            <td th:text="${trader.accountNumber}"></td>
+            <td th:text="${trader.routingNumber}"></td>
+            <td th:text="${trader.walletAddress}"></td>
+            <td th:text="${trader.apiKey}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <h1>Positions</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Liquidation Percentage</th>
+            <th scope="col">Trader ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="position : ${positionslist}">
+            <td th:text="${position.id}"></td>
+            <td th:text="${position.name}"></td>
+            <td th:text="${position.price}"></td>
+            <td th:text="${position.quantity}"></td>
+            <td th:text="${position.liquidationPercentage}"></td>
+            <td th:text="${position.trader.id}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="#" class="btn btn-primary">Add Trader</a>
+    <a href="#" class="btn btn-primary">Post Long Position</a>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
